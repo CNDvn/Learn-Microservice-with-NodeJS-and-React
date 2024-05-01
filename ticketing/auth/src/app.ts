@@ -13,7 +13,7 @@ import { signupRouter } from "./routes/signup";
 const app = express();
 app.set("trust proxy", true)
 app.use(json());
-app.use(cookieSession({ signed: false, secure: true }))
+app.use(cookieSession({ signed: false, secure: process.env.NODE_ENV !== "test" }))
 
 app.use(currentUserRouter)
 app.use(signinRouter)
