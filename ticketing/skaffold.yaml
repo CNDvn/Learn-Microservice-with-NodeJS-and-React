@@ -11,7 +11,7 @@ build:
   #   projectId: ticketing-dev-421506
   artifacts:
     - image: hochanh/auth
-    # - image: us.gcr.io/ticketing-dev-421506/auth
+      # - image: us.gcr.io/ticketing-dev-421506/auth
       context: auth
       docker:
         dockerfile: Dockerfile
@@ -20,7 +20,7 @@ build:
           - src: "src/**/*.ts"
             dest: .
     - image: hochanh/client
-    # - image: us.gcr.io/ticketing-dev-421506/auth
+      # - image: us.gcr.io/ticketing-dev-421506/auth
       context: client
       docker:
         dockerfile: Dockerfile
@@ -38,6 +38,22 @@ build:
             dest: .
     - image: hochanh/orders
       context: orders
+      docker:
+        dockerfile: Dockerfile
+      sync:
+        manual:
+          - src: "src/**/*.ts"
+            dest: .
+    - image: hochanh/expiration
+      context: expiration
+      docker:
+        dockerfile: Dockerfile
+      sync:
+        manual:
+          - src: "src/**/*.ts"
+            dest: .
+    - image: hochanh/payments
+      context: payments
       docker:
         dockerfile: Dockerfile
       sync:
