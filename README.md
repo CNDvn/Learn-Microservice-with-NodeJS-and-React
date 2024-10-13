@@ -14,3 +14,4 @@ This repo store anything that I learn about microservice with node JS and react 
 - create a Secret
 
   - `kubectl create secret generic jwt-secret --from-literal=JWT_KEY=abc`
+  - `kubectl create secret generic stripe-secret --from-literal STRIPE_KEY=<stripe secrets key>`
